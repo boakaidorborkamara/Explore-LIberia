@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberia Counties App</title>
+    <style>
+           *{
+            box-sizing: border-box;
+        
+        }
+        body{
+            background-color: rgb(3, 3, 71);
+            /* background: linear-gradient(to left, rgb(3, 3, 71), red ); */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        main{
+            width: 60%;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+        }
+
+        section{
+            width: 100%;
+            align-self: center;
+            justify-self: center;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        button{
+            background-color: rgb(3, 3, 71);
+            border: 1px solid white;
+            color: white;
+            padding: 10px;
+            font-size: 1.5em;
+            display: inline-block;
+            margin-top: 50px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Add Your County of Origin</h1>
+    
+        <section>
+            <input type="text" placeholder="County" id="county-name">
+            <br>
+            <input type="text" placeholder="Capital City" id="capital-name">
+            <br>
+            <button id="add-county-btn">ADD COUNTY</button>
+        </section>
+            
+    </main>
+   
+
+
+    
+</body>
+</html>

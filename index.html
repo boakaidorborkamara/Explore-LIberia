@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: rgb(3, 3, 71);
+            /* background: linear-gradient(to left, rgb(3, 3, 71), red ); */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-items: center;
+            align-items: center;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        main{
+           width: 70vh;
+           height: 60vh;
+           text-align: center;
+           margin-top: 150px;
+        }
+
+        .upper{
+            height: 60%;
+        }
+
+        .upper h1{
+            font-size: 4.5em;
+        }
+
+        .lower{
+            display: flex;
+            /* color: rgb(1, 1, 88); */
+            justify-content: space-evenly;
+        }
+
+        .lower p{
+            margin-bottom: 10px;
+            background-color: white;
+            
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        p a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="./static/liberia-monrovia-fj.jpg" alt="Liberia image">
+    <main>
+        <section class="upper">
+            
+            <h1>EXPLORE LIBERIA</h1>
+           
+        </section>
+        
+        <section class="lower">
+            <p><a href="/capital">FIND CAPITAL</a></p>
+            <p><a href="/counties">COUNTY & CAPITAL</a></p>
+        </section>
+    </main>
+
+    
+   
+</body>
+</html>

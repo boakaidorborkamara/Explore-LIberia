@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberia Counties App</title>
+    <style>
+            *{
+            box-sizing: border-box;
+        
+        }
+        body{
+            background-color: rgb(3, 3, 71);
+            /* background: linear-gradient(to left, rgb(3, 3, 71), red ); */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        main{
+            width: 60%;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        button{
+            background-color: rgb(3, 3, 71);
+            border: 1px solid white;
+            color: white;
+            padding: 10px;
+            font-size: 1.5em;
+            display: inline-block;
+            margin-top: 50px;
+            cursor: pointer;
+            outline: none;
+            border-radius: 30px;
+        }
+
+        button:hover{
+            font-weight: bold;
+        }
+
+        #user-capital{
+            color: yellow;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Find The Capital City of Your County</h1>
+        <section id="display-capital">
+            <h3 id="user-capital"></h3>
+        </section>
+        <section>
+            <input type="text" placeholder="Enter a County Name" id="county-name">
+            <br>
+            <button id="show-capital-btn">SHOW CAPITAL</button>
+        </section>
+    
+    </main>
+    <script>
+        let show_capital_btn = document.getElementById('show-capital-btn');
+       
+
+        function getCapital() {
+
+            let user_county_name = document.getElementById('county-name').value;
+            let user_capital = document.getElementById('user-capital');
+            // console.log(user_county_name);
+            
+
+            fetch('/get-counties')
+            .then(res => res.json())
+            .then((data)=>{
+                let all_counties = data;
+                console.log(all_counties[user_county_name]);
+                user_capital.innerHTML =  all_counties[user_county_name];
+            })
+        }
+
+        show_capital_btn.addEventListener('click', getCapital);
+    </script>
+    
+</body>
+</html>

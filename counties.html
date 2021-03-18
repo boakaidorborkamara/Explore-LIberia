@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          *{
+            box-sizing: border-box;
+        
+        }
+        body{
+            background-color: rgb(3, 3, 71);
+            /* background: linear-gradient(to left, rgb(3, 3, 71), red ); */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        main{
+            width: 60%;
+            margin-top: 30px;
+        }
+
+        table{
+            width: 100%;
+            font-size: 1.2em;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            
+        }
+
+        th,td{
+            padding: 5px;
+        }
+
+        thead{
+            background-color: white;
+            color: rgb(3, 3, 71);
+            text-align: left;
+        }
+
+        table, thead,th, td{
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="list-section">
+            <table>
+                <thead>
+                    <th>COUNTY</th>
+                    <th>CAPITAL</th>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </section>
+    </main>
+   
+
+
+    <SCript>
+        let table_body = document.getElementById('table-body');
+        fetch('/get-counties')
+        .then(res => res.json())
+        .then((data)=>{
+            let all_data = Object.entries(data);
+            all_data.forEach((ele) => {
+                console.log(ele);
+                let table_data = `
+                     <tr>
+                        <td>${ele[0]}</td>
+                        <td>${ele[1]}</td>
+                    </tr>
+                `
+                table_body.insertAdjacentHTML('beforeend', table_data);
+            });
+        })
+        .catch((err)=>{
+            if(err){
+                console.log(err);
+            }
+        })
+       
+    </SCript>
+</body>
+</html>

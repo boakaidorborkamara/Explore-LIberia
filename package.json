@@ -1,0 +1,22 @@
+{
+  "name": "p2-week2-counties-and-capitals-boakaidorborkamara",
+  "version": "1.0.0",
+  "description": "Liberia County App",
+  "main": "sever.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kwagei/p2-week2-counties-and-capitals-boakaidorborkamara.git"
+  },
+  "author": "Boakai Dorbor Kamara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kwagei/p2-week2-counties-and-capitals-boakaidorborkamara/issues"
+  },
+  "homepage": "https://github.com/Kwagei/p2-week2-counties-and-capitals-boakaidorborkamara#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -76,12 +76,12 @@
     </main>
     <script>
         let show_capital_btn = document.getElementById('show-capital-btn');
-       
+        show_capital_btn.style.visibility = 'hidden';
+        let user_county_name = document.getElementById('county-name');
+        let user_capital = document.getElementById('user-capital');
+        console.log(typeof user_county_name.value)
 
         function getCapital() {
-
-            let user_county_name = document.getElementById('county-name').value;
-            let user_capital = document.getElementById('user-capital');
             // console.log(user_county_name);
             
 
@@ -89,12 +89,26 @@
             .then(res => res.json())
             .then((data)=>{
                 let all_counties = data;
-                console.log(all_counties[user_county_name]);
-                user_capital.innerHTML =  all_counties[user_county_name];
+                // console.log(all_counties[user_county_name.value]);
+                user_capital.innerHTML =  all_counties[user_county_name.value];
             })
         }
 
+        function stopEmptyValue(){
+            if(user_county_name.value !== ''){
+                show_capital_btn.style.visibility = 'visible';
+                
+            }
+           
+        }
+
+        // function verifyInput(){
+            
+        // }
+
+        
         show_capital_btn.addEventListener('click', getCapital);
+        user_county_name.addEventListener('keydown', stopEmptyValue);
     </script>
     
 </body>

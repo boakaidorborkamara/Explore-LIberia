@@ -28,7 +28,7 @@
             width: 100%;
             font-size: 1.2em;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             
         }
 
@@ -44,6 +44,31 @@
 
         table, thead,th, td{
             border: 1px solid white;
+        }
+
+        a{
+            color: white;
+            opacity: 40%;
+            text-decoration: none;
+        }
+
+        a:hover{
+            opacity: 100%;
+        }
+
+        img{
+            width: 6%;
+        }
+
+        #linkArea{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* background-color: thistle; */
+        }
+
+        #linkArea p{
+            width: 40%;
         }
     </style>
 </head>
@@ -63,6 +88,12 @@
                 </tbody>
             </table>
         </section>
+        <section id="linkArea">
+            <p><a href="/capital">FIND CAPITAL</a> </p>
+            <p><a href="https://github.com/boakaidorborkamara" target="blank"><img src="./static/github-9-512.png"></a> </p>
+
+        </section>
+       
     </main>
    
 
@@ -74,7 +105,7 @@
         .then((data)=>{
             let all_data = Object.entries(data);
             all_data.forEach((ele) => {
-                console.log(ele);
+                // console.log(ele);
                 let table_data = `
                      <tr>
                         <td>${ele[0]}</td>

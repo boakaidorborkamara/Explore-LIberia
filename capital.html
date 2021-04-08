@@ -20,7 +20,7 @@
             
         }
         main{
-            width: 60%;
+            width: 70%;
             margin-top: 100px;
             display: flex;
             flex-direction: column;
@@ -30,12 +30,19 @@
             
         }
 
+        h1{
+            text-transform: uppercase;
+        }
+
         input{
             width: 100%;
             padding: 10px;
             font-size: 1.2em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             display: inline-block;
+            text-align: center;
+            font-size: 1.5em;
+            /* text-transform: uppercase; */
         }
 
         button{
@@ -45,10 +52,12 @@
             padding: 10px;
             font-size: 1.5em;
             display: inline-block;
-            margin-top: 50px;
+            margin-top: 10px;
             cursor: pointer;
             outline: none;
-            border-radius: 30px;
+            /* border-radius: 30px; */
+            margin-bottom: 60px;
+           
         }
 
         button:hover{
@@ -58,6 +67,20 @@
         #user-capital{
             color: yellow;
             font-size: 2em;
+        }
+
+        a{
+            color: white;
+            opacity: 40%;
+            text-decoration: none;
+        }
+
+        a:hover{
+            opacity: 100%;
+        }
+
+        img{
+            width: 6%;
         }
     </style>
 </head>
@@ -69,8 +92,15 @@
         </section>
         <section>
             <input type="text" placeholder="Enter a County Name" id="county-name">
-            <br>
+        
             <button id="show-capital-btn">SHOW CAPITAL</button>
+        </section>
+        <section>
+            <p><a href="/counties">VIEW COUNTY & CAPITAL</a> </p>
+        </section>
+
+        <section>
+            <p><a href="https://github.com/boakaidorborkamara" target="blank"><img src="./static/github-9-512.png"></a> </p>
         </section>
     
     </main>
@@ -78,19 +108,30 @@
         let show_capital_btn = document.getElementById('show-capital-btn');
         show_capital_btn.style.visibility = 'hidden';
         let user_county_name = document.getElementById('county-name');
+        
         let user_capital = document.getElementById('user-capital');
-        console.log(typeof user_county_name.value)
+        // console.log(typeof user_county_name.value)
+
+        
+                
+               
 
         function getCapital() {
-            // console.log(user_county_name);
-            
-
+           
             fetch('/get-counties')
             .then(res => res.json())
             .then((data)=>{
                 let all_counties = data;
                 // console.log(all_counties[user_county_name.value]);
-                user_capital.innerHTML =  all_counties[user_county_name.value];
+                
+                if(all_counties[user_county_name.value] === undefined){
+                    alert('Spell county name correctly, begin each word with a capital letter. (Grand Bassa)')
+                    user_capital.innerHTML = '';
+                }
+                else{
+                    user_capital.innerHTML = `${user_county_name.value} capital is ${all_counties[user_county_name.value]}`;
+                }
+                
             })
         }
 
@@ -103,11 +144,18 @@
         }
 
         // function verifyInput(){
+        //     let first_letter = user_county_name.value[0];
+        //     if(user_county_name !== ''){
+        //         first_letter.toUpperCase();
+        //         console.log(first_letter);
+        //         console.log(typeof first_letter);
+        //     }
             
         // }
 
-        
+        // show_capital_btn.addEventListener('click', verifyInput);
         show_capital_btn.addEventListener('click', getCapital);
+        
         user_county_name.addEventListener('keydown', stopEmptyValue);
     </script>
     
